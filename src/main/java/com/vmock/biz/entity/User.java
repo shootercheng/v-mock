@@ -14,6 +14,7 @@ import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 /**
  * 用户对象 sys_user
@@ -103,7 +104,7 @@ public class User extends BaseEntity<User> {
      * 最后登录时间
      */
     @Excel(name = "最后登录时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss")
-    private Long loginDate;
+    private Date loginDate;
 
     /**
      * 生成随机盐

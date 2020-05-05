@@ -20,7 +20,7 @@ public class VMockApplication {
 
     public static void main(String[] args) {
         // 是否需要数据迁移检测
-        dataMigrationCheck();
+//        dataMigrationCheck();
         // 启动主程序
         SpringApplication.run(VMockApplication.class, args);
     }

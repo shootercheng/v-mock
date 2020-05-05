@@ -19,11 +19,18 @@ public class PasswordService {
         }
     }
 
-    public boolean matches(User user, String newPassword) {
-        return user.getPassword().equals(encryptPassword(user.getLoginName(), newPassword, user.getSalt()));
+    public boolean matches(User user, String inputPassword) {
+        return user.getPassword().equals(encryptPassword(inputPassword, user.getSalt()));
     }
 
-    public String encryptPassword(String username, String password, String salt) {
-        return new Md5Hash(username + password + salt).toHex();
+    public String encryptPassword(String password, String salt) {
+        return new Md5Hash(password, salt).toHex();
+    }
+
+    public static void main(String[] args) {
+        String password = "123456";
+        String salt = "fc4a41";
+        String encrypt = new Md5Hash(password, salt).toHex();
+        System.out.println(encrypt);
     }
 }

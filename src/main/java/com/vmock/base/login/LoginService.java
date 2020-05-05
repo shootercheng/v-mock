@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 
 /**
  * 登录校验方法
@@ -55,7 +56,7 @@ public class LoginService {
      */
     private void recordLoginInfo(User user) {
         user.setLoginIp(ServletUtil.getClientIP(request));
-        user.setLoginDate(System.currentTimeMillis());
+        user.setLoginDate(new Date());
         user.updateById();
     }
 }

@@ -41,7 +41,7 @@ public class MockUrlServiceImpl extends ServiceImpl<MockUrlMapper, MockUrl> impl
     private static final String SQL_REGEXP_PATH = "(\\{path\\})";
     private static final String SQL_REGEXP = "SELECT url_id, description, remark, update_time, del_flag, url, create_by, update_by," +
             " create_time, name, logic FROM mock_url WHERE logic REGEXP {} limit 1";
-    @Value("${spring.datasource.druid.url}")
+    @Value("${spring.datasource.url}")
     private String dbPath;
     @Autowired
     private IMockUrlLogicService mockUrlLogicService;

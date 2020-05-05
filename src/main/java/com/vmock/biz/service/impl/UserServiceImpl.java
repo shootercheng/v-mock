@@ -77,7 +77,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     public boolean resetUserPwd(User user) {
         user.randomSalt();
-        user.setPassword(passwordService.encryptPassword(user.getLoginName(), user.getPassword(), user.getSalt()));
+        user.setPassword(passwordService.encryptPassword(user.getPassword(), user.getSalt()));
         return this.updateById(user);
     }
 
@@ -130,7 +130,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         user.setUserName(username);
         user.randomSalt();
         // 密码处理
-        user.setPassword(passwordService.encryptPassword(user.getLoginName(), user.getPassword(), user.getSalt()));
+        user.setPassword(passwordService.encryptPassword(user.getPassword(), user.getSalt()));
         // 新增用户
         return this.save(user);
     }
