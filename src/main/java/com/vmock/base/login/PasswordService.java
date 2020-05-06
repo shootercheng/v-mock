@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class PasswordService {
 
-    public void validate(User user, String password) {
-        if (!matches(user, password)) {
+    public void validate(User user, String inputPassword) {
+        if (!matches(user, inputPassword)) {
             throw new UserPasswordNotMatchException();
         }
     }

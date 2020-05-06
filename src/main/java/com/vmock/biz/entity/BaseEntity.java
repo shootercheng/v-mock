@@ -28,7 +28,7 @@ public class BaseEntity<T extends Model<?>> extends Model<T> {
      * 创建者
      */
     @TableField(fill = FieldFill.INSERT)
-    private Long createBy;
+    private String createBy;
 
     /**
      * 创建时间
@@ -40,7 +40,7 @@ public class BaseEntity<T extends Model<?>> extends Model<T> {
      * 更新者
      */
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Long updateBy;
+    private String updateBy;
 
     /**
      * 更新时间

@@ -12,6 +12,8 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +30,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 public class LoginController extends BaseController {
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
 
 
     @Autowired
@@ -54,7 +57,7 @@ public class LoginController extends BaseController {
         } catch (AuthenticationException e) {
             String msg = "用户或密码错误";
             if (StrUtil.isNotEmpty(e.getMessage())) {
-                msg = e.getMessage();
+                LOGGER.info("login error {}", e.getMessage());
             }
             return error(msg);
         }

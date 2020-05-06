@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -129,6 +130,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         user.setPassword(password);
         user.setUserName(username);
         user.randomSalt();
+        Date now = new Date();
+        user.setCreateTime(now);
+        user.setUpdateTime(now);
         // 密码处理
         user.setPassword(passwordService.encryptPassword(user.getPassword(), user.getSalt()));
         // 新增用户
